@@ -18,7 +18,7 @@ If you wish to repeat the test with datadir on host, make sure to delete the `da
 
 **Throughput:** With datadir on the host, sysbench completes more events over the 5 minute test run -- 8230.66 read/write requests per second to the image's 6609.84.
 
-**Latency:** Although the maximum latency of datadir on host is nearly twice that of image, host's minimum, average, and 95th percentile are all substantially ahead.
+**Latency:** The minimum, average, and 95th percentile latency of datadir on host are all substantially ahead. Although the maximum latency looks terrible on this run, it's usually similar to the image latency. I was probably goofing around during this run.
 
 ### Benchmark platform
 
