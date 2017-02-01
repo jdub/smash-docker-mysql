@@ -33,6 +33,7 @@ When running with datadir on the image, there's a huge amount of SSD write activ
 
 ### datadir on host directory
 
+```
 OLTP test statistics:
     queries performed:
         read:                            1819664
@@ -57,9 +58,11 @@ Test execution summary:
 Threads fairness:
     events (avg/stddev):           8120.1875/93.70
     execution time (avg/stddev):   299.9504/0.01
+```
 
 ### datadir on image
 
+```
 OLTP test statistics:
     queries performed:
         read:                            1461250
@@ -84,3 +87,4 @@ Test execution summary:
 Threads fairness:
     events (avg/stddev):           6521.7500/96.30
     execution time (avg/stddev):   299.9409/0.01
+```
