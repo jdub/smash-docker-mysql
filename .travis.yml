@@ -1,0 +1,34 @@
+matrix:
+  include:
+    - sudo: required
+      dist: precise
+      env:
+        ENV: precise-vm
+    - sudo: required
+      dist: trusty
+      env:
+        ENV: trusty-vm
+    - sudo: false
+      dist: trusty
+      group: beta
+      env:
+        ENV: trusty-container
+
+language: c
+
+services:
+  - docker
+
+cache:
+  directories:
+    - $HOME/bin
+
+before_install:
+  - echo $PATH
+  - export DOCKER_COMPOSE=${HOME}/bin/docker-compose
+  - export DOCKER_COMPOSE_VERSION=1.10.1
+  - test -x ${DOCKER_COMPOSE} || (mkdir -p ${HOME}/bin && curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` -o ${DOCKER_COMPOSE} && chmod +x ${DOCKER_COMPOSE})
+
+script:
+  - docker-compose --version
+  - docker-compose up --abort-on-container-exit
