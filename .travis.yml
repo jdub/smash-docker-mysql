@@ -1,23 +1,9 @@
 language: c
 
+# services: [docker] implies dist: trusty + sudo: required
+# c.f. https://github.com/travis-ci/travis-ci/issues/7256
 services:
   - docker
-
-matrix:
-  include:
-    - sudo: required
-      dist: precise
-      env:
-        ENV: precise-vm
-    - sudo: required
-      dist: trusty
-      env:
-        ENV: trusty-vm
-    - sudo: false
-      dist: trusty
-      group: beta
-      env:
-        ENV: trusty-container
 
 cache:
   directories:
