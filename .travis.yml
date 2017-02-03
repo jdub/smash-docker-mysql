@@ -9,6 +9,10 @@ cache:
   directories:
     - $HOME/bin
 
+env:
+  - VOLUME=host
+  - VOLUME=image
+
 before_install:
   - echo $PATH
   - export DOCKER_COMPOSE=${HOME}/bin/docker-compose
@@ -17,4 +21,5 @@ before_install:
 
 script:
   - docker-compose --version
+  - test "$VOLUME" = "image" && sed -i '/volumes:/d;/data:/d' docker-compose.yml
   - docker-compose up --abort-on-container-exit
